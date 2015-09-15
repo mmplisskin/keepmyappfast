@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
 		 	UserMailer.delay.welcome_email(@user.id)
 		# UserMailer.welcome_email(@user.id).deliver
 		end
+    session[:user_id] = @user.id
     redirect_to user_path(@user)
 	end
 

@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
 
+  get 'sites/index'
+
+  get 'sites/new'
+
+  get 'sites/create'
+
+  get 'sites/destroy'
+
   root 'static_pages#welcome'
 
 
   resources :users
-
+  resources :sites
   # get "login"     => 'sessions#new'
   # post "login"    => 'sessions#create'
   delete "logout" => 'sessions#destroy'

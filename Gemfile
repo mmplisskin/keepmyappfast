@@ -37,6 +37,10 @@ gem 'font-awesome-sass'
 
 gem 'clockwork'
 
+gem 'jquery-turbolinks'
+
+gem 'materialize-sass'
+
 group :production do
   gem 'rails_12factor'
 end

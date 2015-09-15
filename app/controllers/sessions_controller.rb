@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @user = User.from_omniauth(request.env['omniauth.auth'])
 		# if @user.save
 		if @user.created_at > 1.minute.ago
-		 	UserMailer.delay.welcome_email(@user.id)
+      # erMailer.delay.welcome_email(@user.id)
 		# UserMailer.welcome_email(@user.id).deliver
 		end
     session[:user_id] = @user.id

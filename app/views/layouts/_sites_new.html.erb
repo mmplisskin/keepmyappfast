@@ -1,0 +1,11 @@
+<div class="modal" id="new">
+  <div class="modal-content">
+    <div id="notify" class=""></div>
+    <%= simple_form_for @site do |f| %>
+      <%= f.input :name %>
+      <%= f.input :url, input_html: { value: 'http://' } %>
+          <div class="space"></div>
+      <%= f.button :submit, "Add Site", class:'btn disabled', id:'submit-btn'%>
+    <% end %>
+  </div>
+</div>

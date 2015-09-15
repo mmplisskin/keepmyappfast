@@ -29,5 +29,53 @@ $(document).ready(function(){
 
 
 
+  $("#site_name").focus(function() {
+
+    }).blur(function() {
+      // validation length between 1 and 30 characters
+        var len = {min:1,max:30};
+        var nameInput = document.getElementsByTagName("input")[2].value.length
+        var notice = document.getElementById("notify")
+        if ( nameInput >= len.min && nameInput <=len.max ){
+          console.log("valid")
+        }
+        else{
+          $("#name").select()
+          console.log("name invalid")
+          notice.innerHTML="Please Use A name between 1 and 30 characters"
+
+        }
+    });
+
+
+    $("#site_url").focus(function() {
+
+      }).blur(function() {
+        // validation length between 1 and 30 characters
+          var len = {min:1,max:50};
+          var nameInput = document.getElementsByTagName("input")[2].value.length
+          var notice = document.getElementById("notify")
+
+          
+          if ( nameInput >= len.min && nameInput <=len.max ){
+            console.log("valid")
+            valid_inputs();
+          }
+          else{
+            $("#name").select()
+            console.log("name invalid")
+            notice.innerHTML="Please Enter a valid URL"
+
+          }
+      });
+
+      function valid_inputs(){
+
+
+        $("#submit-btn").removeClass("disabled")
+      }
+
+
+
    });
 //

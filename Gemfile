@@ -41,6 +41,8 @@ gem 'jquery-turbolinks'
 
 gem 'materialize-sass'
 
+gem 'simple_form'
+
 group :production do
   gem 'rails_12factor'
 end

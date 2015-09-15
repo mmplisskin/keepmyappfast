@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20150929221610) do
   create_table "sites", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
+    t.string   "status",       default: "Pending Check"
+    t.datetime "last_checked"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   add_index "sites", ["user_id"], name: "index_sites_on_user_id", using: :btree

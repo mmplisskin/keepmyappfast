@@ -1,0 +1,6 @@
+<% current_user.sites.each do |site| %>
+  <%= site.name %>
+  <%= site.url %>
+  <%= site.status %>
+  <%= site.last_checked %>
+<% end %>

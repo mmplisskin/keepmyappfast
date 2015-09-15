@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 		# UserMailer.welcome_email(@user.id).deliver
 		end
     session[:user_id] = @user.id
-    redirect_to user_path(@user)
+    redirect_to sites_path(@user)
 	end
 
   	# rescue
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 
   	def destroy
   		session.delete(:user_id)
-  		redirect_to login_path
+  		redirect_to root_path
   	end
 
   end

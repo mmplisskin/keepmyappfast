@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :sites
   class << self
 	  def from_omniauth(auth_hash)
 			user = find_or_create_by(:email => auth_hash.info.email)

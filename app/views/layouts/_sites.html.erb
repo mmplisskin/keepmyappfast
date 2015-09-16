@@ -14,7 +14,9 @@
     </div>
 
     <div class="col s12 m2">
-      <%= site.last_checked %>
+      <% if site.last_checked %>
+        <%= distance_of_time_in_words(Time.now, site.last_checked) %> ago
+      <% end %>
     </div>
     <div class="col s12 m2">
       <a href="/sites/<%= site.id %>" rel="nofollow" data-method="delete" class="btn-floating wave-effect waves-light btn-red tooltipped" data-position="top" data-delay="10" data-tooltip="Remove Site"><i class="material-icons">delete</i></a>

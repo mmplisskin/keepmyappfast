@@ -15,11 +15,12 @@ class SitesController < ApplicationController
     @site=Site.new(site_params)
     @site.user_id = current_user.id
     if @site.save
+       PingWorker.perform_async(@site.id)
        flash[:notice] = "#{@site.name} was successfully added!"
        redirect_to sites_path
    else
      flash.now[:error] = @site.errors.full_messages
-     render :new
+     redirect_to sites_path
    end
   end
 

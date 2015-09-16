@@ -33,7 +33,7 @@ $(document).ready(function(){
 
     }).blur(function() {
       // validation length between 1 and 30 characters
-        var len = {min:1,max:30};
+        var len = {min:3,max:30};
         var nameInput = document.getElementsByTagName("input")[2].value.length
         var notice = document.getElementById("notify")
         if ( nameInput >= len.min && nameInput <=len.max ){
@@ -56,7 +56,7 @@ $(document).ready(function(){
           var nameInput = document.getElementsByTagName("input")[2].value.length
           var notice = document.getElementById("notify")
 
-          
+
           if ( nameInput >= len.min && nameInput <=len.max ){
             console.log("valid")
             valid_inputs();

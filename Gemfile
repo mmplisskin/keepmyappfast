@@ -33,6 +33,8 @@ gem 'sidekiq'
 
 gem 'sinatra', :require => nil
 
+gem 'httparty'
+
 gem 'font-awesome-sass'
 
 gem 'clockwork'
@@ -40,6 +42,8 @@ gem 'clockwork'
 gem 'jquery-turbolinks'
 
 gem 'materialize-sass'
+
+gem "redis"
 
 gem 'simple_form'
 

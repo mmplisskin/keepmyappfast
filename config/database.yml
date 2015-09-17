@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: keepmyappfast_production
-  username: keepmyappfast
+  username: rails
   password: <%= ENV['KEEPMYAPPFAST_DATABASE_PASSWORD'] %>

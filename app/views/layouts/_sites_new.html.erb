@@ -3,7 +3,7 @@
     <div id="notify" class=""></div>
     <%= simple_form_for @site do |f| %>
       <%= f.input :name %>
-      <%= f.input :url, input_html: { value: 'http://' } %>
+      <%= f.input :url, placeholder: 'example.com, www.example.com, https://example.com' %>
           <div class="space"></div>
       <%= f.button :submit, "Add Site", class:'btn disabled', id:'submit-btn'%>
     <% end %>

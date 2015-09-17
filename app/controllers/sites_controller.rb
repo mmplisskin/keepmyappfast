@@ -13,7 +13,9 @@ class SitesController < ApplicationController
 
   def create
     @site=Site.new(site_params)
+    @site.url = @site.check_url(@site.url)
     @site.user_id = current_user.id
+    # binding.pry
     if @site.save
        PingWorker.perform_async(@site.id)
        flash[:notice] = "#{@site.name} was successfully added!"

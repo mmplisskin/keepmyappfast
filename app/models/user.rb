@@ -4,10 +4,9 @@ class User < ActiveRecord::Base
 	  def from_omniauth(auth_hash)
 			user = find_or_create_by(:email => auth_hash.info.email)
       # binding.pry
-			# if (user.provider !=nil && user.provider != auth_hash['provider'])
-
-			# return
-			# end
+			if (user.provider !=nil && user.provider != auth_hash['provider'])
+			return
+			end
 	    user.name = auth_hash['info']['name']
 			user.uid = auth_hash['uid']
 			user.provider = auth_hash['provider']

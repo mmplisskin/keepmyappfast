@@ -13,12 +13,11 @@ class SessionsController < ApplicationController
 		end
     session[:user_id] = @user.id
     redirect_to sites_path(@user)
-	end
 
-  	# rescue
-  	# 		flash[:notice] = "Please select the provider that you already have an account with ( i.e. if you chose Facebook use your Google account. )"
-  	# 		redirect_to root_path
-  	# end
+  	rescue
+  			flash[:notice] = "Please select the provider that you already have an account with ( i.e. if you chose Facebook use your Google account. )"
+  			redirect_to root_path
+  	end
 
   	def destroy
   		session.delete(:user_id)

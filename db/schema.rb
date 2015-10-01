@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150929221610) do
     t.string   "url"
     t.string   "status",       default: "Pending Check"
     t.datetime "last_checked"
+    t.datetime "last_emailed"
     t.integer  "user_id"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false

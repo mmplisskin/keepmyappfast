@@ -13,5 +13,5 @@ namespace :ping do
       end
       p sites_pinged
   end
-  puts "$%$%$%$%$%$% ALL USERS HAVE BEEN ACCOUNTED FOR $%$%$%$%$%$%"
+  puts "$%$%$%$%$%$% ALL SITES HAVE BEEN ACCOUNTED FOR $%$%$%$%$%$%"
 end

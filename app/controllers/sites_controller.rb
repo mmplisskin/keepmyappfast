@@ -35,7 +35,7 @@ class SitesController < ApplicationController
   private
 
    def site_params
-     params.require(:site).permit(:url, :name, :user_id, :status)
+     params.require(:site).permit(:url, :name, :user_id, :status, :last_emailed, :last_checked)
    end
 
    def find_site

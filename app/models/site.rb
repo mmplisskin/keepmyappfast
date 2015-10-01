@@ -6,6 +6,9 @@ class Site < ActiveRecord::Base
   def check_url(url)
 
       if url.match("https://")
+
+      elsif url.match("http://")
+
       else
         url = "http://" + url
       end

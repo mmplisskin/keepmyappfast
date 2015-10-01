@@ -7,9 +7,8 @@ class SessionsController < ApplicationController
   def create
     @user = User.from_omniauth(request.env['omniauth.auth'])
 		# if @user.save
-		if @user.created_at > 1.minute.ago
+		if @user.created_at > 5.seconds.ago
       UserMailer.delay.welcome(@user.id)
-		# UserMailer.welcome_email(@user.id).deliver
 		end
     session[:user_id] = @user.id
     redirect_to sites_path(@user)

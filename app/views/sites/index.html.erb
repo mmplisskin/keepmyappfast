@@ -1,22 +1,21 @@
-  <div class="space"></div>
+
   <%= render 'layouts/sites_new' %>
   <div class="section">
     <div class = "row">
-      <div class ="col m10 col s12 large">
-        Hi, <%= current_user.email %>
-      </div>
-      <br>
-      <div class ="col m2 s10">
-        <a href="#new" class=" modal-trigger btn waves-effect waves-light grey darken-4"><i class="fa fa-plus"></i> Add Site</a>
+      <div class ="col m10 col s12">
+        <h2 class="indigo-text indigo-darken-4 truncate"> Hi, <%= current_user.email %></h2>
       </div>
     </div>
-      <% if current_user.sites.length < 1 %>
-        <div class="row">
+
+        <div class="row ">
           <p class="flow-text col m6">
-              Add a few sites to monitor their activity
+              Add sites to monitor their activity
           </p>
+          <div class ="col s10">
+            <a href="#new" class=" modal-trigger btn waves-effect waves-light grey darken-4"><i class="fa fa-plus"></i> Add Site</a>
+          </div>
         </div>
-      <% end %>
+
       <div class="space"></div>
     <!-- <div class="divider"></div> -->
     <%= render 'layouts/sites' %>

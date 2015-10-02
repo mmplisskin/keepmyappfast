@@ -1,8 +1,13 @@
 class SitesController < ApplicationController
 
+  include HTTParty
+  require "public_suffix"
+  HTTParty::Basement.default_options.update(verify: false)
+
   before_action :authorized?, only:[:index, :show, :new, :edit]
   before_action :find_site, only:[:destroy]
   before_action :check_amount, only:[:create, :new]
+
   def index
     @sites=Site.all
     @site=Site.new
@@ -14,17 +19,22 @@ class SitesController < ApplicationController
 
   def create
     @site=Site.new(site_params)
-    @site.url = @site.check_url(@site.url)
-    @site.user_id = current_user.id
-    # binding.pry
-    if @site.save
-       PingWorker.perform_async(@site.id)
-       flash[:notice] = "#{@site.name} was successfully added!"
-       redirect_to sites_path
-   else
-     flash.now[:error] = @site.errors.full_messages
-     redirect_to sites_path
-   end
+    if @site.valid_url(@site.url)
+      @site.url = @site.format_url(@site.url)
+      @site.user_id = current_user.id
+      if @site.save
+        PingWorker.perform_async(@site.id)
+        flash[:notice] = "#{@site.name} was successfully added!"
+        redirect_to sites_path
+      else
+        flash[:error] = @site.errors.full_messages
+        redirect_to sites_path
+      end
+    else
+      flash[:error] = "Not a valid URL"
+      redirect_to sites_path
+    end
+
   end
 
   def destroy

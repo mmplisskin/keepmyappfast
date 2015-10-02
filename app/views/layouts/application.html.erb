@@ -29,11 +29,8 @@
 
           <%= render 'layouts/login' %>
 
-
           <% flash.each do |name, msg| %>
           <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
-
-
             <%= msg %>
           <% end %>
         <% end %>
@@ -47,7 +44,7 @@
 
 
 
-
+          <%= render 'layouts/footer' %>
 
 
 

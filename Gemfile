@@ -47,6 +47,8 @@ gem "redis"
 
 gem 'simple_form'
 
+gem 'public_suffix', '~> 1.5.1'
+
 group :production do
   gem 'rails_12factor'
 end

@@ -7,7 +7,6 @@ class PingWorker
 
   def perform(site_id)
 
-
     site = Site.find(site_id)
     response = HTTParty.get(site.url)
 

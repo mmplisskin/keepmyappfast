@@ -2,6 +2,7 @@ class SitesController < ApplicationController
 
   before_action :authorized?, only:[:index, :show, :new, :edit]
   before_action :find_site, only:[:destroy]
+  before_action :check_amount, only:[:create, :new]
   def index
     @sites=Site.all
     @site=Site.new
@@ -33,6 +34,13 @@ class SitesController < ApplicationController
   end
 
   private
+
+  def check_amount
+    if current_user.sites.length > 7
+      flash[:error] = "You have reached your site limit email keepmyappfast@gmail.com to increase your limit"
+      redirect_to sites_path
+    end
+  end
 
    def site_params
      params.require(:site).permit(:url, :name, :user_id, :status, :last_emailed, :last_checked)

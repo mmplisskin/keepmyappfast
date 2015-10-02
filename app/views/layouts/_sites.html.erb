@@ -1,27 +1,54 @@
-
-<% current_user.sites.each do |site| %>
-<div class="section row valign-wrapper">
-    <div class="col s12 m4">
-      <%= site.name %>
-    </div>
-
-    <div class="col s12 m4">
-      <%= site.url %>
-    </div>
-
-    <div class="col s12 m2">
-      <%= site.status %>
-    </div>
-
-    <div class="col s12 m2">
-      <% if site.last_checked %>
-        <%= distance_of_time_in_words(Time.now, site.last_checked) %> ago
-      <% end %>
-    </div>
-    <div class="col s12 m2">
-      <a href="/sites/<%= site.id %>" rel="nofollow" data-method="delete" class="btn-floating wave-effect waves-light btn-red tooltipped" data-position="top" data-delay="10" data-tooltip="Remove Site"><i class="material-icons">delete</i></a>
-    </div>
+<div class="row hide-on-small-only light">
+  <div class="col s8 m3">
+    Site Name
   </div>
+  <div class="col s4 m4">
+    URL
+  </div>
+  <div class="col s8 m2">
+    Status
+  </div>
+  <div class="col m2">
+    Last Checked
+  </div>
+  <div class="col m1">
+    Remove
+  </div>
+</div>
+<div class="divider"></div>
+<div class="section">
+<% current_user.sites.each do |site| %>
+  <br>
+    <div class="row">
+      <div class="col s8 m3">
+        <%= site.name %>
+      </div>
+
+      <div class="col s4 m4">
+        <%= site.url %>
+      </div>
+
+      <div class="col s8 m2">
+        <% if site.status == "Good To Go" %>
+          &nbsp <i class="fa fa-check"></i>
+         <% elsif site.status == "Pending Check" %>
+          &nbsp <i class="fa fa-cog fa-spin"></i>
+         <% else %>
+          &nbsp <i class="fa fa-frown-o"></i>
+        <% end %>
+      </div>
+
+      <div class="col m2">
+        <% if site.last_checked %>
+          <%= distance_of_time_in_words(Time.now, site.last_checked) %> ago
+        <% end %>
+      </div>
+      <div class="col m1">
+        <a href="/sites/<%= site.id %>" rel="nofollow" data-method="delete" class="btn-floating wave-effect waves-light btn-red tooltipped" data-position="top" data-delay="10" data-tooltip="Remove Site"><i class="material-icons">delete</i></a>
+      </div>
+    </div>
+
 
   <div class="divider"></div>
 <% end %>
+</div>

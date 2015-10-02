@@ -19,8 +19,7 @@ class UserMailer < ApplicationMailer
     @email = @user.email
     @title = "Hi #{@user.name}, Your site has gone down"
     @subject = "#{@site.name} is down."
-    @greeting = "We have detected that #{@site.name} is down."
-    @info = "Good luck."
+    @info = "We have detected that #{@site.name} is down."
     @info2 = "If you enjoy this free service a donation is always appreciated to cover hosting costs."
 
 

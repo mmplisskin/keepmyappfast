@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require materialize-sprockets
+
 //= require turbolinks
 
 //= require_tree .
@@ -21,6 +22,7 @@
 
 
 $(document).ready(function(){
+
 
   $(".button-collapse").sideNav();
 
@@ -75,7 +77,53 @@ $(document).ready(function(){
         $("#submit-btn").removeClass("disabled")
       }
 
+        if($(".fa-cog")[0]){
+          setTimeout(function(){ location.reload() }, 3000);
+        }
+
+        // var timetext
+        // timetext = $(".m2")[3].innerHTML
+        // var number = parseInt(timetext, 10) || 1
+        // console.log(number)
+        // var twenty_minutes = 1200
+        // var duration = twenty_minutes - number * 60
+        // var display = $('#time');
+        // startTimer(duration, display);
+        //
+        //
+        // function startTimer(duration, display) {
+        //     var timer = duration, minutes, seconds;
+        //     setInterval(function () {
+        //         minutes = parseInt(timer / 60, 10);
+        //         seconds = parseInt(timer % 60, 10);
+        //
+        //         minutes = minutes < 10 ? "0" + minutes : minutes;
+        //         seconds = seconds < 10 ? "0" + seconds : seconds;
+        //
+        //         display.text(minutes);
+        //
+        //         if (--timer < 0) {
+        //             timer = duration;
+        //             location.reload()
+        //         }
+        //     }, 1000);
+        // }
+
+
+
+
 
 
    });
+
+
 //
+
+//
+// $(document).ready(
+//          function() {
+//           setInterval(function() {
+//             $('.dynamic').load('/sites/index');
+//             console.log("updated")
+//         }, 3000);
+//     });

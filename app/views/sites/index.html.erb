@@ -1,4 +1,3 @@
-
   <%= render 'layouts/sites_new' %>
   <div class="section">
     <div class = "row">
@@ -6,8 +5,7 @@
         <h2 class="indigo-text indigo-darken-4 truncate"> Hi, <%= current_user.email %></h2>
       </div>
     </div>
-
-        <div class="row ">
+        <div class="row">
           <p class="flow-text col m6">
               Add sites to monitor their activity
           </p>
@@ -17,6 +15,11 @@
         </div>
 
       <div class="space"></div>
+
+
     <!-- <div class="divider"></div> -->
-    <%= render 'layouts/sites' %>
+    <div id="sites"><%= render 'layouts/sites' %></div>
+  </div>
+  <div class="row">
+        <!-- <div class="col">checking for updates in <span id="time"></span> minutes</div> -->
   </div>

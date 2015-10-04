@@ -9,8 +9,11 @@ class SitesController < ApplicationController
   before_action :check_amount, only:[:create, :new]
 
   def index
-    @sites=Site.all
+
+    @sites=current_user.sites
     @site=Site.new
+
+
   end
 
   def new
@@ -34,7 +37,6 @@ class SitesController < ApplicationController
       flash[:error] = "Not a valid URL"
       redirect_to sites_path
     end
-
   end
 
   def destroy
@@ -42,6 +44,7 @@ class SitesController < ApplicationController
       flash[:notice] = "#{@site.name} was successfully destoryed"
       redirect_to sites_path
   end
+
 
   private
 

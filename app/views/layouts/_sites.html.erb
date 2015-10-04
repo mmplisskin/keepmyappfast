@@ -41,7 +41,8 @@
 
         <div class="col m2 s6">
           <% if site.last_checked %>
-            <%= distance_of_time_in_words(Time.now, site.last_checked) %> ago
+            <%#= distance_of_time_in_words(Time.now, site.last_checked) %>
+            <%= time_ago_in_words(site.last_checked) %> ago
           <% end %>
         </div>
         <div class="col m1 offset-s10">

@@ -26,4 +26,10 @@ class Site < ActiveRecord::Base
   end
 
 
+  def worker_queue
+    PingWorker.perform_async(self.id)
+    # binding.pry
+  end
+
+
 end

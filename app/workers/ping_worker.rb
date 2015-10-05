@@ -28,7 +28,7 @@ class PingWorker
 
     site.last_checked = Time.now
     site.save!
-    
+
   end
 
 end

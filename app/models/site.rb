@@ -3,17 +3,16 @@ class Site < ActiveRecord::Base
   belongs_to :user
 
   validates :name, length: { in: 4..50 }
-  validates :url, uniqueness: true
+  validates :url, uniqueness: true, if: :format_url
   # calls valid url method to ensure domain
   validate :url, :valid_url
-  after_validation :format_url, on: [ :create ]
+  # after_validation :format_url
 
 
   def format_url
     self.url.chomp
-    if self.url.match("https://")
-      elsif self.url.match("http://")
-      else self.url = "http://" + url
+    if self.url.match("https://") || self.url.match("http://")
+    else self.url = "http://" + url
     end
     self.url
   end

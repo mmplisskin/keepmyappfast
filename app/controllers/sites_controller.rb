@@ -14,6 +14,7 @@ class SitesController < ApplicationController
     site = Site.new(site_params)
     site.user_id = current_user.id
       if site.save
+        # adds to sidekiq PingWorkerqueue in site.rb
         site.worker_queue
         flash[:notice] = "#{site.name} was successfully added!"
       else

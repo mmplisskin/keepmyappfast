@@ -8,35 +8,23 @@ class SitesController < ApplicationController
   before_action :find_site, only:[:destroy]
   before_action :check_amount, only:[:create, :new]
 
+
   def index
-
     @sites=current_user.sites
-    @site=Site.new
-
-
-  end
-
-  def new
     @site=Site.new
   end
 
   def create
-    @site=Site.new(site_params)
-    if @site.valid_url(@site.url)
-      @site.url = @site.format_url(@site.url)
-      @site.user_id = current_user.id
-      if @site.save
-        PingWorker.perform_async(@site.id)
-        flash[:notice] = "#{@site.name} was successfully added!"
+    site = Site.new(site_params)
+    site.user_id = current_user.id
+      if site.save
+        PingWorker.perform_async(site.id)
+        flash[:notice] = "#{site.name} was successfully added!"
         redirect_to sites_path
       else
-        flash[:error] = @site.errors.full_messages
+        flash[:error] = site.errors.full_messages
         redirect_to sites_path
       end
-    else
-      flash[:error] = "Not a valid URL"
-      redirect_to sites_path
-    end
   end
 
   def destroy
@@ -56,7 +44,8 @@ class SitesController < ApplicationController
   end
 
    def site_params
-     params.require(:site).permit(:url, :name, :user_id, :status, :last_emailed, :last_checked)
+     params.require(:site).permit(:url, :name)
+    #  :user_id, :status, :last_emailed, :last_checked
    end
 
    def find_site

@@ -77,9 +77,9 @@ $(document).ready(function(){
         $("#submit-btn").removeClass("disabled")
       }
 
-        if($(".fa-cog")[0]){
-          setTimeout(function(){ location.reload() }, 3000);
-        }
+        // if($(".fa-cog")[0]){
+        //   setTimeout(function(){ location.reload() }, 3000);
+        // }
 
 
    });

@@ -3,12 +3,14 @@ class Site < ActiveRecord::Base
   belongs_to :user
 
   validates :name, length: { in: 4..50 }
+  # uniqueness is checked after url is formatted
   validates :url, uniqueness: true, if: :format_url
   # calls valid url method to ensure domain
   validate :url, :valid_url
   # after_validation :format_url
 
 
+# chomps input returns protocol if present or http:// + url
   def format_url
     self.url.chomp
     if self.url.match("https://") || self.url.match("http://")
@@ -24,10 +26,9 @@ class Site < ActiveRecord::Base
     end
   end
 
-
+#adds site id to ping worker queue for async processing
   def worker_queue
     PingWorker.perform_async(self.id)
-    # binding.pry
   end
 
 

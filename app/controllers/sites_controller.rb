@@ -2,6 +2,7 @@ class SitesController < ApplicationController
 
   before_action :authorized?, only:[:index]
   before_action :find_site, only:[:destroy]
+  #verify that they are not adding too many sites
   before_action :check_amount, only:[:create]
 
 
@@ -48,8 +49,12 @@ class SitesController < ApplicationController
      @site = Site.find(params[:id])
    end
 
+   #redirect if user not logge in
    def authorized?
-     current_user != nil
+     unless current_user != nil
+      redirect_to root_path
+    end
    end
+
 
 end

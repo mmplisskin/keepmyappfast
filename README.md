@@ -21,5 +21,5 @@
 
 
 
-App is at localhost:3000/sidekiq
-Queue can be seen at localhost:3000/sidekiq
+
+Queue can be seen at .../sidekiq

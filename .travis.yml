@@ -1,7 +1,12 @@
 language: ruby
-	rvm:
-	  - 2.2.2
-	  - 2.2.1
-	  - 2.1.5
-	cache: bundler
+rvm:
+  - 2.1.5
+cache: bundler
+script: bundle exec rspec
+addons:
+  postgresql: "9.3"
+before_script:
+  - psql -c 'create database keepmtappfast_test;' -U postgres
 
+services:
+  - redis-server

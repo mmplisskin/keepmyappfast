@@ -3,9 +3,9 @@
 
 
 ##To Do
--Render sites view in realtime
--Rspec Tests
--Refactoring
+* Render sites view in realtime
+* Rspec Tests
+* Refactoring
 
 
 ##setup

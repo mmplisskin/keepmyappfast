@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   	end
 
   def create
+    reset_session
     @user = User.from_omniauth(request.env['omniauth.auth'])
 		# if @user.save
 		if @user.created_at > 5.seconds.ago

@@ -9,7 +9,7 @@
 
 
 ##setup
-####There are a few dependencies for the development environemnt including postgress, redis and sidekiq.
+####There are a few dependencies for the development environment including postgress, redis and sidekiq.
 ####Clockwork is included but not required unless you want to see jobs added to the queue every 20 minutes
 
 

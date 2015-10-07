@@ -1,14 +1,14 @@
 class SitesController < ApplicationController
 
-  before_action :authorized?, only:[:index]
+  before_action :authorized?, only:[:index, :new, :create, :destroy]
   before_action :find_site, only:[:destroy]
-  #verify that they are not adding too many sites
+  #verify that they
   before_action :check_amount, only:[:create]
 
 
   def index
-    @sites=current_user.sites
-    @site=Site.new
+    @sites = current_user.sites
+    @site = Site.new
   end
 
   def create
@@ -27,7 +27,11 @@ class SitesController < ApplicationController
   def destroy
       @site.destroy
       flash[:notice] = "#{@site.name} was successfully destoryed"
-      redirect_to sites_path
+      if current_user.admin
+        redirect_to users_path
+      else
+        redirect_to sites_path
+      end
   end
 
 

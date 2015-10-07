@@ -1,8 +1,15 @@
 #Keep My App Fast [![Build Status](https://travis-ci.org/mmplisskin/keepmyappfast.svg?branch=testing)](https://travis-ci.org/mmplisskin/keepmyappfast)
 
 
+
+##To Do
+* Render sites view in realtime
+* Rspec Tests
+* Refactoring
+
+
 ##setup
-####There are a few dependencies for the development environemnt including postgress, redis and sidekiq.
+####There are a few dependencies for the development environment including postgress, redis and sidekiq.
 ####Clockwork is included but not required unless you want to see jobs added to the queue every 20 minutes
 
 

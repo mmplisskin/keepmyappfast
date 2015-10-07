@@ -19,7 +19,15 @@
 
 
           </li>
+
+
+
          <% if current_user %>
+           <% if current_user.admin %>
+           <li>
+             <a href="/users"><i class="fa fa-user material-icons left"></i> Admin</a>
+           </li>
+           <% end %>
            <li>
              <a href="/sites"><i class="fa fa-globe material-icons left"></i> Sites</a>
            </li>

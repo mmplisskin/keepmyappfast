@@ -2,7 +2,7 @@ class Site < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :name, length: { in: 4..50 }
+  validates :name, length: { in: 4..50 }, presence: true
   # uniqueness is checked after url is formatted
   validates :url, uniqueness: true, if: :format_url
   # calls valid url method to ensure domain

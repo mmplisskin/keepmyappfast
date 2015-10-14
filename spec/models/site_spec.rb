@@ -1,4 +1,6 @@
 require 'rails_helper'
+require 'sidekiq/testing'
+Sidekiq::Testing.fake!
 
 RSpec.describe Site, type: :model do
 
@@ -27,7 +29,7 @@ RSpec.describe Site, type: :model do
     site = Site.create(name: "hello", url: "https://example.com")
     expect(site.url).to eq("https://example.com")
     site2 = Site.create(name: "hello", url: "http://example2.com")
-    expect(site2.url).to eq("http://example.com")
+    expect(site2.url).to eq("http://example2.com")
 	end
 
   it "adds protocol if none exists on create" do
@@ -43,11 +45,11 @@ RSpec.describe Site, type: :model do
     expect(site2).to be_invalid
 	end
 
-
-
-
-
-
+  # it "is invalid if not a unique url" do
+  #   expect {
+  #     PingWorker.perform_async(1, 2)
+  #   }.to change(PingWorker.jobs, :size).by(1)
+  # end
 
 
 

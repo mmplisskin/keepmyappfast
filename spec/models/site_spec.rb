@@ -45,6 +45,12 @@ RSpec.describe Site, type: :model do
     expect(site2).to be_invalid
 	end
 
+
+  it "is invalid if it does not end with a suffix" do
+    site = Site.create(name: "hello", url: "example.com/")
+    expect(site).to be_invalid
+	end
+
   # it "is invalid if not a unique url" do
   #   expect {
   #     PingWorker.perform_async(1, 2)

@@ -18,7 +18,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   reaping_frequency: 10
-  pool: 25
+  pool: 15
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
 

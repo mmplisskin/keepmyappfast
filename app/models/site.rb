@@ -7,7 +7,7 @@ class Site < ActiveRecord::Base
   validates :url, uniqueness: true, if: :format_url
   # calls valid url method to ensure domain
   validate :url, :valid_url
-  # after_validation :format_url
+
 
 
 # chomps input returns protocol if present or http:// + url
